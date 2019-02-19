@@ -6,14 +6,14 @@ const bodyParser = require('body-parser');
 // creating the app
 const app = express();
 
-// Require todo routes
-require('./app/routes/todo.routes')(app);
-
 // parse requests of content-type application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse request of content type application/json
 app.use(bodyParser.json())
+
+// Require todo routes
+require('./app/routes/todo.routes')(app);
 
 // routes
 app.get('/', (req, res) => {
